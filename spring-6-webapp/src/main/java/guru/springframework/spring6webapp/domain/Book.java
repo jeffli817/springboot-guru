@@ -15,10 +15,12 @@ public class Book {
     private String isbn;
 
     @ManyToMany
-    @JoinTable(name = "author book", joinColumns = @JoinColumn(name="book_id"),
+    @JoinTable(name = "author_book", joinColumns = @JoinColumn(name="book_id"),
     inverseJoinColumns = @JoinColumn(name="author_id"))
     private Set<Author> authors = new HashSet<>();
 
+    @ManyToOne
+    private Publisher publisher;
     public Set<Author> getAuthors() {
         return authors;
     }
@@ -37,6 +39,14 @@ public class Book {
 
     public String getTitle() {
         return title;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublishers(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     public void setTitle(String title) {
