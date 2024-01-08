@@ -1,7 +1,9 @@
 package guru.springframework.springdi.controllers;
 
 import guru.springframework.springdi.services.GreetingService;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
